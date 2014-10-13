@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_project_unittest_admin">
+            <field name="name">Project_unittest Administration</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_project_unittest_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_project_unittest_admin"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_project_unittest_admin">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_project_unittest_admin"/>
+        </record>
+        <record model="res.group" id="group_project_unittest">
+            <field name="name">Project_unittest</field>
+        </record>
+        <record model="res.user-res.group" id="user_admin_group_project_unittest">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_project_unittest"/>
+        </record>
+        <record model="res.user-res.group" id="user_trigger_group_project_unittest">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_project_unittest"/>
+        </record>
+        <record model="ir.ui.view" id="project_test_build_view_form">
+            <field name="model">project.test.build</field>
+            <field name="type">form</field>
+            <field name="name">project_test_build_form</field>
+        </record>
+        <record model="ir.ui.view" id="project_test_build_view_list">
+            <field name="model">project.test.build</field>
+            <field name="type">tree</field>
+            <field name="name">project_test_build_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_test_build">
+            <field name="name">Test Build</field>
+            <field name="res_model">project.test.build</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_test_build_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="project_test_build_view_list"/>
+            <field name="act_window" ref="act_project_test_build"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_test_build_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_test_build_view_form"/>
+            <field name="act_window" ref="act_project_test_build"/>
+        </record>
+        <record model="ir.model.access" id="access_project_test_build">
+            <field name="model" search="[('model', '=', 'project.test.build')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_test_build_admin">
+            <field name="model" search="[('model', '=', 'project.test.build')]"/>
+            <field name="group" ref="group_project_unittest_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.ui.view" id="project_test_build_group_view_form">
+            <field name="model">project.test.build.group</field>
+            <field name="type">form</field>
+            <field name="name">project_test_build_group_form</field>
+        </record>
+        <record model="ir.ui.view" id="project_test_build_group_view_list">
+            <field name="model">project.test.build.group</field>
+            <field name="type">tree</field>
+            <field name="name">project_test_build_group_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_test_build_group">
+            <field name="name">Test Build Group</field>
+            <field name="res_model">project.test.build.group</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_test_build_group_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="project_test_build_group_view_list"/>
+            <field name="act_window" ref="act_project_test_build_group"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_test_build_group_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_test_build_group_view_form"/>
+            <field name="act_window" ref="act_project_test_build_group"/>
+        </record>
+        <record model="ir.model.access" id="access_project_test_build_group">
+            <field name="model" search="[('model', '=', 'project.test.build.group')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_test_build_group_admin">
+            <field name="model" search="[('model', '=', 'project.test.build.group')]"/>
+            <field name="group" ref="group_project_unittest_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.ui.view" id="project_test_build_result_view_form">
+            <field name="model">project.test.build.result</field>
+            <field name="type">form</field>
+            <field name="name">project_test_build_result_form</field>
+        </record>
+        <record model="ir.ui.view" id="project_test_build_result_view_list">
+            <field name="model">project.test.build.result</field>
+            <field name="type">tree</field>
+            <field name="name">project_test_build_result_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_test_build_result">
+            <field name="name">Test Build Result</field>
+            <field name="res_model">project.test.build.result</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_test_build_result_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="project_test_build_result_view_list"/>
+            <field name="act_window" ref="act_project_test_build_result"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_test_build_result_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_test_build_result_view_form"/>
+            <field name="act_window" ref="act_project_test_build_result"/>
+        </record>
+        <record model="ir.model.access" id="access_project_test_build_result">
+            <field name="model" search="[('model', '=', 'project.test.build.result')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_test_build_result_admin">
+            <field name="model" search="[('model', '=', 'project.test.build.result')]"/>
+            <field name="group" ref="group_project_unittest_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <!-- Menus -->
+        <menuitem id="menu_project_unittest" parent="project.menu_project" name="Project_unittest" sequence="1" />
+
+          <record model="ir.ui.menu-res.group" id="menu_project_unittest_group_project_unittest">
+            <field name="menu" ref="menu_project_unittest"/>
+            <field name="group" ref="group_project_unittest"/>
+          </record>
+
+          <record model="ir.ui.menu-res.group" id="menu_project_unittest_group_project_unittest_admin">
+            <field name="menu" ref="menu_project_unittest"/>
+            <field name="group" ref="group_project_unittest"/>
+          </record>
+
+        <menuitem action="act_project_test_build" id="menu_project_test_build" parent="menu_project_unittest" sequence="1" name="Test Build"/>
+        <menuitem action="act_project_test_build_group" id="menu_project_test_build_group" parent="menu_project_unittest" sequence="1" name="Test Build Group"/>
+        <menuitem action="act_project_test_build_result" id="menu_project_test_build_result" parent="menu_project_unittest" sequence="1" name="Test Build Result"/>
+    </data>
+</tryton>

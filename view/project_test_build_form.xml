@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<form string="Test Build">
+    <label name="component"/>
+    <field name="component"/>
+    <label name="branch"/>
+    <field name="branch"/>
+    <label name="revision"/>
+    <field name="revision"/>
+
+    <label name="review"/>
+    <field name="review"/>
+    <label name="test_state"/>
+    <field name="test_state"/>
+    <label name="flake_state"/>
+    <field name="flake_state"/>
+    <label name="coverage_state"/>
+    <field name="coverage_state"/>
+
+    <label name="lines"/>
+    <field name="lines"/>
+    <label name="covered_lines"/>
+    <field name="covered_lines"/>
+    <label name="coverage"/>
+    <field name="coverage"/>
+    <label name="execution"/>
+    <field name="execution"/>
+    <field name="test" colspan="4"/>
+</form>
