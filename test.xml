@@ -3,7 +3,7 @@
     <data>
 
         <record model="res.group" id="group_project_unittest_admin">
-            <field name="name">Project_unittest Administration</field>
+            <field name="name">Project Unittest Administration</field>
         </record>
         <record model="res.user-res.group" id="user_admin_group_project_unittest_admin">
             <field name="user" ref="res.user_admin"/>
@@ -14,7 +14,7 @@
             <field name="group" ref="group_project_unittest_admin"/>
         </record>
         <record model="res.group" id="group_project_unittest">
-            <field name="name">Project_unittest</field>
+            <field name="name">Project Unittest</field>
         </record>
         <record model="res.user-res.group" id="user_admin_group_project_unittest">
             <field name="user" ref="res.user_admin"/>
@@ -126,6 +126,40 @@
             <field name="view" ref="project_test_build_result_view_form"/>
             <field name="act_window" ref="act_project_test_build_result"/>
         </record>
+        <record model="ir.action.act_window.domain"
+                id="act_project_test_build_result_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="act_window" ref="act_project_test_build_result"/>
+        </record>
+        <record model="ir.action.act_window.domain"
+                id="act_project_test_build_result_domain_failed">
+            <field name="name">Failed</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('state', '=', 'fail')]</field>
+            <field name="act_window" ref="act_project_test_build_result"/>
+        </record>
+        <record model="ir.action.act_window.domain"
+                id="act_project_test_build_result_domain_error">
+            <field name="name">Error</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain">[('state', '=', 'error')]</field>
+            <field name="act_window" ref="act_project_test_build_result"/>
+        </record>
+        <record model="ir.action.act_window.domain"
+                id="act_project_test_build_result_domain_pass">
+            <field name="name">Pass</field>
+            <field name="sequence" eval="40"/>
+            <field name="domain">[('state', '=', 'pass')]</field>
+            <field name="act_window" ref="act_project_test_build_result"/>
+        </record>
+        <record model="ir.action.act_window.domain"
+                id="act_project_test_build_result_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="act_window" ref="act_project_test_build_result"/>
+        </record>
         <record model="ir.model.access" id="access_project_test_build_result">
             <field name="model" search="[('model', '=', 'project.test.build.result')]"/>
             <field name="perm_read" eval="True"/>
@@ -141,21 +175,79 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+        <record model="ir.ui.view" id="project_work_component_view_form">
+            <field name="model">project.work.component</field>
+            <field name="name">component_form</field>
+            <field name="inherit"
+                ref="project_component.project_work_component_view_form"/>>
+        </record>
+        <record model="ir.ui.view" id="component_state_view_list">
+            <field name="model">project.work.component</field>
+            <field name="type">tree</field>
+            <field name="name">component_list</field>
+        </record>
+        <record model="ir.action.act_window" id="act_project_work_component">
+            <field name="name">Component State</field>
+            <field name="res_model">project.work.component</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_work_component_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="component_state_view_list"/>
+            <field name="act_window" ref="act_project_work_component"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_work_component_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="project_work_component_view_form"/>
+            <field name="act_window" ref="act_project_work_component"/>
+        </record>
         <!-- Menus -->
-        <menuitem id="menu_project_unittest" parent="project.menu_project" name="Project_unittest" sequence="1" />
+        <menuitem id="menu_project_unittest" parent="project.menu_project"
+            name="Unittests" sequence="30" icon="tryton-list"/>
 
-          <record model="ir.ui.menu-res.group" id="menu_project_unittest_group_project_unittest">
-            <field name="menu" ref="menu_project_unittest"/>
-            <field name="group" ref="group_project_unittest"/>
-          </record>
+        <record model="ir.ui.menu-res.group" id="menu_project_unittest_group_project_unittest">
+          <field name="menu" ref="menu_project_unittest"/>
+          <field name="group" ref="group_project_unittest"/>
+        </record>
 
-          <record model="ir.ui.menu-res.group" id="menu_project_unittest_group_project_unittest_admin">
-            <field name="menu" ref="menu_project_unittest"/>
-            <field name="group" ref="group_project_unittest"/>
-          </record>
+        <record model="ir.ui.menu-res.group" id="menu_project_unittest_group_project_unittest_admin">
+          <field name="menu" ref="menu_project_unittest"/>
+          <field name="group" ref="group_project_unittest_admin"/>
+        </record>
 
-        <menuitem action="act_project_test_build" id="menu_project_test_build" parent="menu_project_unittest" sequence="1" name="Test Build"/>
-        <menuitem action="act_project_test_build_group" id="menu_project_test_build_group" parent="menu_project_unittest" sequence="1" name="Test Build Group"/>
-        <menuitem action="act_project_test_build_result" id="menu_project_test_build_result" parent="menu_project_unittest" sequence="1" name="Test Build Result"/>
+        <menuitem action="act_project_test_build_group"
+            id="menu_project_test_build_group" parent="menu_project_unittest"
+            sequence="10" name="Test Build Group"/>
+        <menuitem action="act_project_test_build" id="menu_project_test_build"
+            parent="menu_project_unittest" sequence="20" name="Test Build"/>
+        <menuitem action="act_project_test_build_result"
+            id="menu_project_test_build_result" parent="menu_project_unittest"
+            sequence="30" name="Test Build Result"/>
+        <menuitem action="act_project_work_component"
+            id="menu_project_component_state" parent="menu_project_unittest"
+            sequence="40"/>
+        <record model="res.user" id="user_delete_test_builds">
+            <field name="login">user_cron_delete_tests_builds</field>
+            <field name="name">Cron Delete Test Builds</field>
+            <field name="signature"></field>
+            <field name="active" eval="False"/>
+        </record>
+        <record model="res.user-res.group"
+            id="user_delete_test_builds_group_purchase_request">
+            <field name="user" ref="user_delete_test_builds"/>
+            <field name="group" ref="group_project_unittest_admin"/>
+        </record>
+
+        <record model="ir.cron" id="cron_delete_test_builds">
+            <field name="name">Delete Tests Builds</field>
+            <field name="request_user" ref="res.user_admin"/>
+            <field name="user" ref="user_delete_test_builds"/>
+            <field name="active" eval="True"/>
+            <field name="interval_number" eval="1"/>
+            <field name="interval_type">days</field>
+            <field name="number_calls" eval="-1"/>
+            <field name="repeat_missed" eval="False"/>
+            <field name="model">project.test.build.group</field>
+            <field name="function">delete_old_builds</field>
+        </record>
     </data>
 </tryton>

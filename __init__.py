@@ -3,9 +3,11 @@
 from trytond.pool import Pool
 from .test import *
 
+
 def register():
     Pool.register(
         TestBuildGroup,
         TestBuild,
         TestBuildResult,
+        Component,
         module='project_unittest', type_='model')
