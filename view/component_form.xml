@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/separator[@name='comment']" position="before">
+        <label name="last_build"/>
+        <field name="last_build"/>
+        <label name="test_state"/>
+        <field name="test_state"/>
+        <label name="flake_state"/>
+        <field name="flake_state"/>
+        <label name="coverage_state"/>
+        <field name="coverage_state"/>
+    </xpath>
+</data>

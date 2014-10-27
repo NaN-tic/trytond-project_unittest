@@ -1,0 +1,488 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:project.test.build,branch:"
+msgid "Branch"
+msgstr "Branca"
+
+msgctxt "field:project.test.build,component:"
+msgid "Component"
+msgstr "Component"
+
+msgctxt "field:project.test.build,coverage:"
+msgid "Coverage"
+msgstr "Cobertura"
+
+msgctxt "field:project.test.build,coverage_state:"
+msgid "Coverage State"
+msgstr "Estat cobertura"
+
+msgctxt "field:project.test.build,covered_lines:"
+msgid "Covered Lines"
+msgstr "Línies cobertes"
+
+msgctxt "field:project.test.build,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:project.test.build,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:project.test.build,execution:"
+msgid "Execution"
+msgstr "Execució"
+
+msgctxt "field:project.test.build,flake_state:"
+msgid "Flake State"
+msgstr "Estat flake"
+
+msgctxt "field:project.test.build,group:"
+msgid "Group"
+msgstr "Grup"
+
+msgctxt "field:project.test.build,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:project.test.build,lines:"
+msgid "Lines"
+msgstr "Línies"
+
+msgctxt "field:project.test.build,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:project.test.build,review:"
+msgid "Review"
+msgstr "Review"
+
+msgctxt "field:project.test.build,revision:"
+msgid "Revision"
+msgstr "Revisió"
+
+msgctxt "field:project.test.build,test:"
+msgid "Tests"
+msgstr "Tests"
+
+msgctxt "field:project.test.build,test_state:"
+msgid "Test State"
+msgstr "Estat tests"
+
+msgctxt "field:project.test.build,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:project.test.build,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:project.test.build.group,builds:"
+msgid "Builds"
+msgstr "Execucions"
+
+msgctxt "field:project.test.build.group,coverage_state:"
+msgid "Coverage State"
+msgstr "Estat cobertura"
+
+msgctxt "field:project.test.build.group,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:project.test.build.group,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:project.test.build.group,db_type:"
+msgid "db_type"
+msgstr "Tipus base de dades"
+
+msgctxt "field:project.test.build.group,development:"
+msgid "Development"
+msgstr "Desenvolupament"
+
+msgctxt "field:project.test.build.group,end:"
+msgid "End"
+msgstr "Finalitzat"
+
+msgctxt "field:project.test.build.group,failfast:"
+msgid "Fail Fast"
+msgstr "Falla aviat"
+
+msgctxt "field:project.test.build.group,flake_state:"
+msgid "Flake State"
+msgstr "Estat flake"
+
+msgctxt "field:project.test.build.group,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:project.test.build.group,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:project.test.build.group,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:project.test.build.group,reviews:"
+msgid "Include Reviews"
+msgstr "Incloure reviews"
+
+msgctxt "field:project.test.build.group,start:"
+msgid "Start"
+msgstr "Inici"
+
+msgctxt "field:project.test.build.group,test_state:"
+msgid "Test State"
+msgstr "Estat tests"
+
+msgctxt "field:project.test.build.group,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:project.test.build.group,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:project.test.build.result,build:"
+msgid "Build"
+msgstr "Execució"
+
+msgctxt "field:project.test.build.result,create_date:"
+msgid "Create Date"
+msgstr "Data de creació"
+
+msgctxt "field:project.test.build.result,create_uid:"
+msgid "Create User"
+msgstr "Usuari de creació"
+
+msgctxt "field:project.test.build.result,description:"
+msgid "Description"
+msgstr "Descripció"
+
+msgctxt "field:project.test.build.result,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:project.test.build.result,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:project.test.build.result,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:project.test.build.result,state:"
+msgid "State"
+msgstr "Estat"
+
+msgctxt "field:project.test.build.result,type:"
+msgid "Field Title"
+msgstr "Títol camp"
+
+msgctxt "field:project.test.build.result,write_date:"
+msgid "Write Date"
+msgstr "Data modificación"
+
+msgctxt "field:project.test.build.result,write_uid:"
+msgid "Write User"
+msgstr "Usuari modificació"
+
+msgctxt "field:project.work.component,coverage_state:"
+msgid "Coverage State"
+msgstr "Estat cobertura"
+
+msgctxt "field:project.work.component,flake_state:"
+msgid "Flake State"
+msgstr "Estat flake"
+
+msgctxt "field:project.work.component,last_build:"
+msgid "Last Build"
+msgstr "Ultima execució tests"
+
+msgctxt "field:project.work.component,test_state:"
+msgid "Test State"
+msgstr "Estat tests"
+
+msgctxt "model:ir.action,name:act_project_test_build"
+msgid "Test Build"
+msgstr "Execució de test"
+
+msgctxt "model:ir.action,name:act_project_test_build_group"
+msgid "Test Build Group"
+msgstr "Grup d'execució de tests"
+
+msgctxt "model:ir.action,name:act_project_test_build_result"
+msgid "Test Build Result"
+msgstr "Grup d'execució de tests"
+
+msgctxt "model:ir.action,name:act_project_work_component"
+msgid "Component State"
+msgstr "Estat components"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_project_test_build_result_domain_all"
+msgid "All"
+msgstr "Tots"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_project_test_build_result_domain_draft"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_project_test_build_result_domain_error"
+msgid "Error"
+msgstr "Error"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_project_test_build_result_domain_failed"
+msgid "Failed"
+msgstr "Fallat"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_project_test_build_result_domain_pass"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "model:ir.cron,name:cron_delete_test_builds"
+msgid "Delete Tests Builds"
+msgstr "Eliminar execucions de tests"
+
+msgctxt "model:ir.ui.menu,name:menu_project_component_state"
+msgid "Component State"
+msgstr "Estat components"
+
+msgctxt "model:ir.ui.menu,name:menu_project_test_build"
+msgid "Test Build"
+msgstr "Execució de test"
+
+msgctxt "model:ir.ui.menu,name:menu_project_test_build_group"
+msgid "Test Build Group"
+msgstr "Grup d'execució de tests"
+
+msgctxt "model:ir.ui.menu,name:menu_project_test_build_result"
+msgid "Test Build Result"
+msgstr "Grup d'execució de tests"
+
+msgctxt "model:ir.ui.menu,name:menu_project_unittest"
+msgid "Unittests"
+msgstr "Proves unitaries"
+
+msgctxt "model:project.test.build,name:"
+msgid "Test Build"
+msgstr "Execució de test"
+
+msgctxt "model:project.test.build.group,name:"
+msgid "Test Build Group"
+msgstr "Grup d'execució de tests"
+
+msgctxt "model:project.test.build.result,name:"
+msgid "Test Build Result"
+msgstr "Grup d'execució de tests"
+
+msgctxt "model:res.group,name:group_project_unittest"
+msgid "Project_unittest"
+msgstr "Proves unitaries projecte"
+
+msgctxt "model:res.group,name:group_project_unittest_admin"
+msgid "Project_unittest Administration"
+msgstr "Administració proves unitaries projecte"
+
+msgctxt "model:res.user,name:user_delete_test_builds"
+msgid "Cron Delete Test Builds"
+msgstr "Planificador eleminar execucions de test"
+
+msgctxt "selection:project.test.build,coverage_state:"
+msgid "Acceptable"
+msgstr "Acceptable"
+
+msgctxt "selection:project.test.build,coverage_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.test.build,coverage_state:"
+msgid "Ok"
+msgstr "D'acord"
+
+msgctxt "selection:project.test.build,coverage_state:"
+msgid "To Improve"
+msgstr "A millorar"
+
+msgctxt "selection:project.test.build,flake_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.test.build,flake_state:"
+msgid "Fail"
+msgstr "Fallat"
+
+msgctxt "selection:project.test.build,flake_state:"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "selection:project.test.build,test_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.test.build,test_state:"
+msgid "Fail"
+msgstr "Fallat"
+
+msgctxt "selection:project.test.build,test_state:"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "selection:project.test.build.group,coverage_state:"
+msgid "Acceptable"
+msgstr "Acceptable"
+
+msgctxt "selection:project.test.build.group,coverage_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.test.build.group,coverage_state:"
+msgid "Ok"
+msgstr "D'acord"
+
+msgctxt "selection:project.test.build.group,coverage_state:"
+msgid "To Improve"
+msgstr "A millorar"
+
+msgctxt "selection:project.test.build.group,db_type:"
+msgid "PostgreSQL"
+msgstr "PostgreSQL"
+
+msgctxt "selection:project.test.build.group,db_type:"
+msgid "SQLite"
+msgstr "SQLite"
+
+msgctxt "selection:project.test.build.group,flake_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.test.build.group,flake_state:"
+msgid "Fail"
+msgstr "Fallat"
+
+msgctxt "selection:project.test.build.group,flake_state:"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "selection:project.test.build.group,test_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.test.build.group,test_state:"
+msgid "Fail"
+msgstr "Fallat"
+
+msgctxt "selection:project.test.build.group,test_state:"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "selection:project.test.build.result,state:"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt "selection:project.test.build.result,state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.test.build.result,state:"
+msgid "Failed"
+msgstr "Fallat"
+
+msgctxt "selection:project.test.build.result,state:"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "selection:project.test.build.result,type:"
+msgid "Coverage"
+msgstr "Cobertura"
+
+msgctxt "selection:project.test.build.result,type:"
+msgid "Flake"
+msgstr "Flake"
+
+msgctxt "selection:project.test.build.result,type:"
+msgid "PEP8"
+msgstr "PEP8"
+
+msgctxt "selection:project.test.build.result,type:"
+msgid "Scenario"
+msgstr "Scenario"
+
+msgctxt "selection:project.test.build.result,type:"
+msgid "Unittest"
+msgstr "Proves unitaries"
+
+msgctxt "selection:project.work.component,coverage_state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:project.work.component,coverage_state:"
+msgid "Acceptable"
+msgstr "Acceptable"
+
+msgctxt "selection:project.work.component,coverage_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.work.component,coverage_state:"
+msgid "Ok"
+msgstr "D'acord"
+
+msgctxt "selection:project.work.component,coverage_state:"
+msgid "To Improve"
+msgstr "A millorar"
+
+msgctxt "selection:project.work.component,flake_state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:project.work.component,flake_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.work.component,flake_state:"
+msgid "Fail"
+msgstr "Fallat"
+
+msgctxt "selection:project.work.component,flake_state:"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "selection:project.work.component,test_state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:project.work.component,test_state:"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "selection:project.work.component,test_state:"
+msgid "Fail"
+msgstr "Fallat"
+
+msgctxt "selection:project.work.component,test_state:"
+msgid "Pass"
+msgstr "Correcte"
+
+msgctxt "view:project.test.build.group:"
+msgid "Test Build Group"
+msgstr "Grup d'execució de tests"
+
+msgctxt "view:project.test.build.result:"
+msgid "Test Build Result"
+msgstr "Grup d'execució de tests"
+
+msgctxt "view:project.test.build:"
+msgid "Test Build"
+msgstr "Execució de test"
+
+msgctxt "view:project.work.component:"
+msgid "Component State"
+msgstr "Estat components"
