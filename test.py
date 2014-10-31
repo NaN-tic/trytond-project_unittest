@@ -7,6 +7,7 @@ import datetime
 from dateutil.relativedelta import relativedelta
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool, PoolMeta
+from trytond.tools import reduce_ids
 from trytond.transaction import Transaction
 
 
@@ -54,30 +55,55 @@ class TestBuildGroup(ModelSQL, ModelView):
 
     @classmethod
     def get_state(cls, groups, names):
-        test_state = {}
-        flake_state = {}
-        coverage_state = {}
+        pool = Pool()
+        Build = pool.get('project.test.build')
+        Result = pool.get('project.test.build.result')
+        cursor = Transaction().cursor
+        in_max = cursor.IN_MAX
 
-        for group in groups:
-            test_state[group.id] = 'pass'
-            flake_state[group.id] = 'pass'
-            coverage_state[group.id] = 'pass'
-            if any(x.test_state == 'error' for x in group.builds):
-                test_state[group.id] = 'error'
-            elif any(x.test_state == 'fail' for x in group.builds):
-                test_state[group.id] = 'fail'
-            if any(x.flake_state == 'error' for x in group.builds):
-                flake_state[group.id] = 'error'
-            elif any(x.flake_state == 'fail' for x in group.builds):
-                flake_state[group.id] = 'fail'
-            if any(b.coverage < 50 for b in group.builds):
-                coverage_state[group.id] = 'error'
-            elif any(b.coverage < 60 for b in group.builds):
-                coverage_state[group.id] = 'to_improve'
-            elif any(b.coverage < 70 for b in group.builds):
-                coverage_state[group.id] = 'acceptable'
-            else:
-                coverage_state[group.id] = 'ok'
+        group_ids = [g.id for g in groups]
+        test_state = {}.fromkeys(group_ids, 'pass')
+        flake_state = {}.fromkeys(group_ids, 'pass')
+        coverage_state = {}.fromkeys(group_ids, 'ok')
+
+        build = Build.__table__()
+        table = Result.__table__()
+        coverage = Case((Min(build.coverage) < Literal(50), 'error'),
+                        (Min(build.coverage) < Literal(60), 'to_improve'),
+                        (Min(build.coverage) < Literal(70), 'acceptable'),
+                        else_='ok')
+        # TODO: Replace with grouped_slice
+        for i in range(0, len(group_ids), in_max):
+            sub_ids = group_ids[i:i + in_max]
+            red_sql = reduce_ids(build.group, sub_ids)
+            if 'coverage_state' in names:
+                coverage_query = build.select(build.group, coverage,
+                    group_by=(build.group), where=red_sql)
+                cursor.execute(*coverage_query)
+                coverage_state.update(dict(cursor.fetchall()))
+            for name in ('test_state', 'flake_state'):
+                if name not in names:
+                    continue
+
+                if name == 'test_state':
+                    types = ['unittest', 'scenario']
+                else:
+                    types = ['flake', 'pep8']
+                numeric_state = Min(Case((table.state == Literal('error'), 0),
+                        (table.state == Literal('fail'), 1),
+                        else_=2))
+                state = Case((numeric_state == Literal(0), 'error'),
+                    (numeric_state == Literal(1), 'fail'),
+                    else_='pass')
+                query = build.join(table, condition=(
+                        (build.id == table.build) &
+                        table.type.in_(types))).select(build.group, state,
+                            group_by=build.group)
+                cursor.execute(*query)
+                if name == 'test_state':
+                    test_state.update(dict(cursor.fetchall()))
+                else:
+                    flake_state.update(dict(cursor.fetchall()))
 
         result = {
             'coverage_state': coverage_state,
@@ -188,34 +214,54 @@ class TestBuild(ModelSQL, ModelView):
 
     @classmethod
     def get_state(cls, builds, names):
-        test_state = {}
-        flake_state = {}
-        coverage_state = {}
+        pool = Pool()
+        Result = pool.get('project.test.build.result')
+        cursor = Transaction().cursor
+        in_max = cursor.IN_MAX
 
-        for build in builds:
-            test_lines = [x for x in build.test
-                if x.type in ('unittest, scenario')]
-            flake_lines = [x for x in build.test if x.type in ('flake, pep8')]
+        build_ids = [g.id for g in builds]
+        test_state = {}.fromkeys(build_ids, 'pass')
+        flake_state = {}.fromkeys(build_ids, 'pass')
+        coverage_state = {}.fromkeys(build_ids, 'ok')
 
-            test_state[build.id] = 'pass'
-            flake_state[build.id] = 'pass'
-            coverage_state[build.id] = 'pass'
-            if any(x.state == 'error' for x in test_lines):
-                test_state[build.id] = 'error'
-            elif any(x.state == 'fail' for x in test_lines):
-                test_state[build.id] = 'fail'
-            if any(x.state == 'error' for x in flake_lines):
-                flake_state[build.id] = 'error'
-            elif any(x.state == 'fail' for x in flake_lines):
-                flake_state[build.id] = 'fail'
-            if build.coverage < 50:
-                coverage_state[build.id] = 'error'
-            elif build.coverage < 60:
-                coverage_state[build.id] = 'to_improve'
-            elif build.coverage < 70:
-                coverage_state[build.id] = 'acceptable'
-            else:
-                coverage_state[build.id] = 'ok'
+        table = cls.__table__()
+        result = Result.__table__()
+
+        # TODO: Replace with grouped_slice
+        for i in range(0, len(build_ids), in_max):
+            sub_ids = build_ids[i:i + in_max]
+            red_sql = reduce_ids(table.id, sub_ids)
+            coverage = Case((table.coverage < Literal(50), 'error'),
+                            (table.coverage < Literal(60), 'to_improve'),
+                            (table.coverage < Literal(70), 'acceptable'),
+                            else_='ok')
+            coverage_query = table.select(table.id, coverage, where=red_sql)
+            cursor.execute(*coverage_query)
+            coverage_state.update(dict(cursor.fetchall()))
+            for name in ('test_state', 'flake_state'):
+                if name not in names:
+                    continue
+
+                if name == 'test_state':
+                    types = ['unittest', 'scenario']
+                else:
+                    types = ['flake', 'pep8']
+                numeric_state = Min(Case((result.state == Literal('error'), 0),
+                        (result.state == Literal('fail'), 1),
+                        else_=2))
+                state = Case((numeric_state == Literal(0), 'error'),
+                    (numeric_state == Literal(1), 'fail'),
+                    else_='pass')
+                query = result.join(table, condition=(
+                        (table.id == result.build) &
+                        result.type.in_(types))).select(table.id, state,
+                            group_by=table.id)
+
+                cursor.execute(*query)
+                if name == 'test_state':
+                    test_state.update(dict(cursor.fetchall()))
+                else:
+                    flake_state.update(dict(cursor.fetchall()))
 
         result = {
             'coverage_state': coverage_state,
