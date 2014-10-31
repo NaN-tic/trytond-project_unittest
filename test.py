@@ -165,7 +165,7 @@ class TestBuildGroup(ModelSQL, ModelView):
         pool = Pool()
         Date = pool.get('ir.date')
         if date is None:
-            date = Date.today() - relativedelta(months=1)
+            date = Date.today() - relativedelta(weeks=1)
         if isinstance(date, datetime.date):
             date = datetime.datetime.combine(date, datetime.time(23, 59, 59))
         to_delete = cls.search([('end', '<=', date)])
