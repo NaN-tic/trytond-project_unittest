@@ -222,6 +222,10 @@ msgctxt "model:ir.action,name:act_project_work_component"
 msgid "Component State"
 msgstr "Estado componentes"
 
+msgctxt "model:ir.action,name:act_result"
+msgid "Results"
+msgstr "Resultados"
+
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_project_test_build_result_domain_all"
 msgid "All"
@@ -247,6 +251,26 @@ msgctxt ""
 msgid "Pass"
 msgstr "Correcto"
 
+msgctxt "model:ir.action.act_window.domain,name:act_result_domain_all"
+msgid "All"
+msgstr "Todos"
+
+msgctxt "model:ir.action.act_window.domain,name:act_result_domain_draft"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "model:ir.action.act_window.domain,name:act_result_domain_error"
+msgid "Error"
+msgstr "Error"
+
+msgctxt "model:ir.action.act_window.domain,name:act_result_domain_failed"
+msgid "Failed"
+msgstr "Fallado"
+
+msgctxt "model:ir.action.act_window.domain,name:act_result_domain_pass"
+msgid "Pass"
+msgstr "Correcto"
+
 msgctxt "model:ir.cron,name:cron_delete_test_builds"
 msgid "Delete Tests Builds"
 msgstr "Eliminar ejecucciones tests"
@@ -267,8 +291,9 @@ msgctxt "model:ir.ui.menu,name:menu_project_test_build_result"
 msgid "Test Build Result"
 msgstr "Resultado ejecuciones pruebas unitarias"
 
+#, fuzzy
 msgctxt "model:ir.ui.menu,name:menu_project_unittest"
-msgid "Unittests"
+msgid "Project_unittest"
 msgstr "Pruebas unitarias"
 
 msgctxt "model:project.test.build,name:"
