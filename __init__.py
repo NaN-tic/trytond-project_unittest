@@ -2,7 +2,7 @@
 # copyright notices and license terms.
 from trytond.pool import Pool
 from .test import *
-
+from .work import *
 
 def register():
     Pool.register(
@@ -10,4 +10,5 @@ def register():
         TestBuild,
         TestBuildResult,
         Component,
+        Work,
         module='project_unittest', type_='model')

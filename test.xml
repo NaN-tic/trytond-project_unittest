@@ -254,6 +254,15 @@
             <field name="view" ref="project_work_component_view_form"/>
             <field name="act_window" ref="act_project_work_component"/>
         </record>
+
+        <record model="ir.ui.view" id="project_work_view_form">
+            <field name="model">project.work</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="project.work_view_form"/>
+            <field name="name">project_work_form</field>
+        </record>
+
+
         <!-- Menus -->
         <menuitem id="menu_project_unittest" parent="project.menu_project"
             name="Unittests" sequence="30" icon="tryton-list"/>

@@ -32,7 +32,7 @@ class TestBuildGroup(ModelSQL, ModelView):
     failfast = fields.Boolean('Fail Fast', readonly=True)
     reviews = fields.Boolean('Include Reviews', readonly=True)
     development = fields.Boolean('Development', readonly=True)
-
+    work = fields.Many2One('project.work', 'Task')
     test_state = fields.Function(fields.Selection([
             ('pass', 'Pass'),
             ('fail', 'Fail'),

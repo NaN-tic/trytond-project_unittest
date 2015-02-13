@@ -1,20 +1,24 @@
 <?xml version="1.0"?>
 <!-- The COPYRIGHT file at the top level of this repository contains the full
      copyright notices and license terms. -->
-<form string="Test Build Group">
+<form string="Test Build Group" col="6">
     <label name="name"/>
-    <field name="name" colspan="3"/>
+    <field name="name"/>
+    <label name="work"/>
+    <field name="work"/>
+    <newline/>
     <label name="db_type"/>
     <field name="db_type"/>
     <label name="failfast"/>
-    <field name="failfast"/>
+    <field name="failfast" xexpand="0"/>
     <label name="reviews"/>
-    <field name="reviews"/>
+    <field name="reviews" xexpand="0"/>
     <newline/>
     <label name="start"/>
     <field name="start"/>
     <label name="end"/>
     <field name="end"/>
+    <newline/>
     <label name="test_state"/>
     <field name="test_state"/>
     <label name="flake_state"/>
@@ -22,5 +26,5 @@
     <label name="coverage_state"/>
     <field name="coverage_state"/>
 
-    <field name="builds" colspan="4"/>
+    <field name="builds" colspan="6"/>
 </form>
