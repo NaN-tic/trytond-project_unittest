@@ -328,7 +328,7 @@ class TestBuildResult(ModelSQL, ModelView):
             ('flake', 'Flake'),
             ('pep8', 'PEP8'),
             ('coverage', 'Coverage')
-            ], 'Field Title', required=True, readonly=True, select=True)
+            ], 'Type', required=True, readonly=True, select=True)
     description = fields.Text('Description', readonly=True)
     state = fields.Selection([
             ('draft', 'Draft'),
