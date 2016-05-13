@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <!-- The COPYRIGHT file at the top level of this repository contains the full
      copyright notices and license terms. -->
-<tree string="Test Build Group"
-        colors="If((Eval('test_state') != 'pass') | (Eval('coverage_state') == 'error'), 'red', If(Eval('coverage_state') == 'to_improve', '#FF9D00', (If(Eval('coverage_state') == 'acceptable', '#C9D400', 'black'))))">
+<tree string="Test Build Group">
     <field name="name"/>
     <field name="db_type"/>
     <field name="start"/>
