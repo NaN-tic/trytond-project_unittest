@@ -130,28 +130,36 @@
                 id="act_project_test_build_result_domain_draft">
             <field name="name">Draft</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'draft')]"
+                pyson="1"/>
             <field name="act_window" ref="act_project_test_build_result"/>
         </record>
         <record model="ir.action.act_window.domain"
                 id="act_project_test_build_result_domain_failed">
             <field name="name">Failed</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('state', '=', 'fail')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'fail')]"
+                pyson="1"/>
             <field name="act_window" ref="act_project_test_build_result"/>
         </record>
         <record model="ir.action.act_window.domain"
                 id="act_project_test_build_result_domain_error">
             <field name="name">Error</field>
             <field name="sequence" eval="30"/>
-            <field name="domain">[('state', '=', 'error')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'error')]"
+                pyson="1"/>
             <field name="act_window" ref="act_project_test_build_result"/>
         </record>
         <record model="ir.action.act_window.domain"
                 id="act_project_test_build_result_domain_pass">
             <field name="name">Pass</field>
             <field name="sequence" eval="40"/>
-            <field name="domain">[('state', '=', 'pass')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'pass')]"
+                pyson="1"/>
             <field name="act_window" ref="act_project_test_build_result"/>
         </record>
         <record model="ir.action.act_window.domain"
@@ -183,7 +191,9 @@
         <record model="ir.action.act_window" id="act_result">
             <field name="name">Results</field>
             <field name="res_model">project.test.build.result</field>
-            <field name="domain">[('build.group', 'in', Eval('active_ids'))]</field>
+            <field name="domain"
+                eval="[('build.group', 'in', Eval('active_ids'))]"
+                pyson="1"/>
         </record>
         <record model="ir.action.act_window.view" id="act_result_view1">
             <field name="sequence" eval="10"/>
@@ -194,28 +204,36 @@
                 id="act_result_domain_draft">
             <field name="name">Draft</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'draft')]"
+                pyson="1"/>
             <field name="act_window" ref="act_result"/>
         </record>
         <record model="ir.action.act_window.domain"
                 id="act_result_domain_failed">
             <field name="name">Failed</field>
             <field name="sequence" eval="20"/>
-            <field name="domain">[('state', '=', 'fail')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'fail')]"
+                pyson="1"/>
             <field name="act_window" ref="act_result"/>
         </record>
         <record model="ir.action.act_window.domain"
                 id="act_result_domain_error">
             <field name="name">Error</field>
             <field name="sequence" eval="30"/>
-            <field name="domain">[('state', '=', 'error')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'error')]"
+                pyson="1"/>
             <field name="act_window" ref="act_result"/>
         </record>
         <record model="ir.action.act_window.domain"
                 id="act_result_domain_pass">
             <field name="name">Pass</field>
             <field name="sequence" eval="40"/>
-            <field name="domain">[('state', '=', 'pass')]</field>
+            <field name="domain"
+                eval="[('state', '=', 'pass')]"
+                pyson="1"/>
             <field name="act_window" ref="act_result"/>
         </record>
         <record model="ir.action.act_window.domain"
@@ -233,7 +251,7 @@
             <field name="model">project.work.component</field>
             <field name="name">component_form</field>
             <field name="inherit"
-                ref="project_component.project_work_component_view_form"/>>
+                ref="project_component.project_work_component_view_form"/>
         </record>
         <record model="ir.ui.view" id="component_state_view_list">
             <field name="model">project.work.component</field>
