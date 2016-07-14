@@ -58,7 +58,7 @@ class TestBuildGroup(ModelSQL, ModelView):
         pool = Pool()
         Build = pool.get('project.test.build')
         Result = pool.get('project.test.build.result')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         in_max = cursor.IN_MAX
 
         group_ids = [g.id for g in groups]
@@ -216,7 +216,7 @@ class TestBuild(ModelSQL, ModelView):
     def get_state(cls, builds, names):
         pool = Pool()
         Result = pool.get('project.test.build.result')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         in_max = cursor.IN_MAX
 
         build_ids = [g.id for g in builds]
@@ -380,7 +380,7 @@ class Component:
         Build = pool.get('project.test.build')
         table = Build.__table__()
         table2 = Build.__table__()
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         component_ids = [c.id for c in components]
         result = {}.fromkeys(component_ids, None)
