@@ -2,7 +2,9 @@
 <!-- The COPYRIGHT file at the top level of this repository contains the full
      copyright notices and license terms. -->
 <tree string="Test Build">
-    <field name="execution"/>
+    <field name="execution" widget="date"/>
+    <field name="execution" widget="time"/>
+
     <field name="component"/>
     <field name="branch"/>
     <field name="revision"/>

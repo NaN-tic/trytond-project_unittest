@@ -4,8 +4,11 @@
 <tree string="Test Build Group">
     <field name="name"/>
     <field name="db_type"/>
-    <field name="start"/>
-    <field name="end"/>
+    <field name="start" widget="date"/>
+    <field name="start" widget="time"/>
+    <field name="end" widget="date"/>
+    <field name="end" widget="time"/>
+
     <field name="failfast"/>
     <field name="reviews"/>
     <field name="test_state"/>

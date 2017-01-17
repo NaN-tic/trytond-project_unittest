@@ -59,7 +59,7 @@ class TestBuildGroup(ModelSQL, ModelView):
         Build = pool.get('project.test.build')
         Result = pool.get('project.test.build.result')
         cursor = Transaction().connection.cursor()
-        in_max = cursor.IN_MAX
+        in_max = 300
 
         group_ids = [g.id for g in groups]
         test_state = {}.fromkeys(group_ids, 'pass')
@@ -217,7 +217,7 @@ class TestBuild(ModelSQL, ModelView):
         pool = Pool()
         Result = pool.get('project.test.build.result')
         cursor = Transaction().connection.cursor()
-        in_max = cursor.IN_MAX
+        in_max = 300
 
         build_ids = [g.id for g in builds]
         test_state = {}.fromkeys(build_ids, 'pass')

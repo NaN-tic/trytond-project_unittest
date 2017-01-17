@@ -4,7 +4,9 @@
 <data>
     <xpath expr="/form/separator[@name='comment']" position="before">
         <label name="last_build"/>
-        <field name="last_build"/>
+        <field name="last_build" widget="date"/>
+        <field name="last_build" widget="time"/>
+
         <label name="test_state"/>
         <field name="test_state"/>
         <label name="flake_state"/>

@@ -5,7 +5,9 @@
     <label name="component"/>
     <field name="component"/>
     <label name="execution"/>
-    <field name="execution"/>
+    <field name="execution" widget="date"/>
+    <field name="execution" widget="time"/>
+
     <newline/>
     <group id="test_state" col="2" colspan="2">
         <label name="branch"/>

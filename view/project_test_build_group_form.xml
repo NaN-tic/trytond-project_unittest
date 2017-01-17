@@ -15,9 +15,13 @@
     <field name="reviews" xexpand="0"/>
     <newline/>
     <label name="start"/>
-    <field name="start"/>
+    <field name="start" widget="date"/>
+    <field name="start" widget="time"/>
+
     <label name="end"/>
-    <field name="end"/>
+    <field name="end" widget="date"/>
+    <field name="end" widget="time"/>
+
     <newline/>
     <label name="test_state"/>
     <field name="test_state"/>
