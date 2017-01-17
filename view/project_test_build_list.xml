@@ -8,6 +8,9 @@
     <field name="component"/>
     <field name="branch"/>
     <field name="revision"/>
+    <field name="revision_date" widget="date"/>
+    <field name="revision_date" widget="time"/>
+    <field name="revision_author"/>
     <field name="review"/>
     <field name="lines"/>
     <field name="covered_lines"/>
@@ -15,5 +18,4 @@
     <field name="test_state"/>
     <field name="flake_state"/>
     <field name="coverage_state"/>
-
 </tree>

@@ -4,21 +4,31 @@
 <form string="Test Build" col="6">
     <label name="component"/>
     <field name="component"/>
-    <label name="execution"/>
-    <field name="execution" widget="date"/>
-    <field name="execution" widget="time"/>
+    <group id="execution" colspan="2" col="3">
+      <label name="execution"/>
+      <field name="execution" widget="date"/>
+      <field name="execution" widget="time"/>
+    </group>
 
     <newline/>
-    <group id="test_state" col="2" colspan="2">
+    <group id="test_state" col="4" colspan="4">
         <label name="branch"/>
         <field name="branch"/>
         <label name="revision"/>
         <field name="revision"/>
+        <group id="revision_date" colspan="2" col="3">
+          <label name="revision_date"/>
+          <field name="revision_date" widget="date"/>
+          <field name="revision_date" widget="time"/>
+        </group>
+        <label name="revision_author"/>
+        <field name="revision_author"/>
+
         <label name="review"/>
         <field name="review"/>
     </group>
 
-    <group id="test_state" col="2" colspan="2">
+    <group id="test_state" col="2" colspan="1">
         <label name="test_state"/>
         <field name="test_state"/>
         <label name="flake_state"/>
@@ -27,7 +37,7 @@
         <field name="coverage_state"/>
     </group>
 
-    <group id="coverage" col="2" colspan="2">
+    <group id="coverage" col="2" colspan="1">
         <label name="lines"/>
         <field name="lines"/>
         <label name="covered_lines"/>
