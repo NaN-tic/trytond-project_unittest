@@ -2,16 +2,7 @@
 <!-- The COPYRIGHT file at the top level of this repository contains the full
      copyright notices and license terms. -->
 <data>
-    <xpath expr="/form/separator[@name='comment']" position="before">
-        <label name="last_build"/>
-        <field name="last_build" widget="date"/>
-        <field name="last_build" widget="time"/>
-
-        <label name="test_state"/>
-        <field name="test_state"/>
-        <label name="flake_state"/>
-        <field name="flake_state"/>
-        <label name="coverage_state"/>
-        <field name="coverage_state"/>
+    <xpath expr="/form/field[@name='module']" position="after">
+      <field name="builds" colspan="4"/>
     </xpath>
 </data>

@@ -4,7 +4,5 @@
 <tree string="Component State">
     <field name="rec_name"/>
     <field name="category"/>
-    <field name="test_state"/>
-    <field name="flake_state"/>
-    <field name="coverage_state"/>
+    <field name="build_state"/>
 </tree>

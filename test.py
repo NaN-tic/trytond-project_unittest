@@ -191,31 +191,20 @@ class TestBuildResult(ModelSQL, ModelView):
 
 class Component:
     __name__ = 'project.work.component'
-    last_build = fields.Function(fields.Many2One('project.test.build',
-            'Last Build'),
-        'get_last_build')
-    test_state = fields.Function(fields.Selection([
-            ('', ''),
-            ('pass', 'Pass'),
-            ('fail', 'Fail'),
-            ('error', 'Error'),
-            ], 'Test State', select=True),
-        'get_state')
-    flake_state = fields.Function(fields.Selection([
-            ('', ''),
-            ('pass', 'Pass'),
-            ('fail', 'Fail'),
-            ('error', 'Error'),
-            ], 'Flake State', select=True),
-        'get_state')
-    coverage_state = fields.Function(fields.Selection([
-            ('', ''),
-            ('ok', 'Ok'),
-            ('acceptable', 'Acceptable'),
-            ('to_improve', 'To Improve'),
-            ('error', 'Error'),
-            ], 'Coverage State', select=True),
-        'get_state')
+
+    builds = fields.Function(fields.One2Many('project.test.build', 'component',
+        'Last Commit Date'), 'get_last_build')
+    build_state = fields.Function(fields.Char('Build State'),
+        'get_build_state')
+
+    @classmethod
+    def get_build_state(cls, components, name):
+        result = {}
+        for component in components:
+            result[component.id] = ",".join(["(%s,%s%%,%s)" % (x.branch,
+                x.coverage, x.test_state) for x in component.builds
+                    if component.builds])
+        return result
 
     @classmethod
     def get_last_build(cls, components, name):
@@ -226,21 +215,22 @@ class Component:
         cursor = Transaction().connection.cursor()
 
         component_ids = [c.id for c in components]
-        result = {}.fromkeys(component_ids, None)
+        result = {}.fromkeys(component_ids, [])
+
         subquery = table2.select(table2.component,
-            Max(table2.execution).as_('execution'),
-            group_by=table2.component)
+            Max(table2.revision_date).as_('revision_date'),
+            group_by=(table2.component, table2.branch))
 
         query = table.join(subquery, condition=(
                 (table.component == subquery.component) &
-                (table.execution == subquery.execution))).select(
+                (table.revision_date == subquery.revision_date))).select(
                     table.component, table.id,
                     where=table.component.in_(component_ids))
         cursor.execute(*query)
-        result.update(dict(cursor.fetchall()))
-        return result
+        for key, val in cursor.fetchall():
+            if isinstance(val, list):
+                result[key] = val
+            else:
+                result[key] = [val]
 
-    def get_state(self, name):
-        if not self.last_build:
-            return ''
-        return getattr(self.last_build, name)
+        return result
