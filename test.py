@@ -26,6 +26,8 @@ class TestBuild(ModelSQL, ModelView):
     revision = fields.Char('Revision', required=True, readonly=True)
     revision_date = fields.DateTime('Revision Date')
     revision_author = fields.Char('Author')
+    revision_description = fields.Char('Description')
+
     test = fields.One2Many('project.test.build.result', 'build', 'Tests',
         readonly=True)
     coverage = fields.Float('Coverage', digits=(16, 2),

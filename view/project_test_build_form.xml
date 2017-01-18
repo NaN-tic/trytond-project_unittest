@@ -16,13 +16,15 @@
         <field name="branch"/>
         <label name="revision"/>
         <field name="revision"/>
-        <group id="revision_date" colspan="2" col="3">
-          <label name="revision_date"/>
+        <label name="revision_date"/>
+        <group id="revision_date" colspan="1" col="2">
           <field name="revision_date" widget="date"/>
           <field name="revision_date" widget="time"/>
         </group>
         <label name="revision_author"/>
         <field name="revision_author"/>
+        <label name="revision_description"/>
+        <field name="revision_description" colspan="3"/>
 
         <label name="review"/>
         <field name="review"/>

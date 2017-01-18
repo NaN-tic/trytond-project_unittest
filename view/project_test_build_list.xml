@@ -11,6 +11,7 @@
     <field name="revision_date" widget="date"/>
     <field name="revision_date" widget="time"/>
     <field name="revision_author"/>
+    <field name="revision_description"/>
     <field name="review"/>
     <field name="lines"/>
     <field name="covered_lines"/>
